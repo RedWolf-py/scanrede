@@ -2,6 +2,26 @@ import os
 import platform
 import socket
 import concurrent.futures
+import time 
+
+def exibir_aviso_legal():
+    aviso = """
+╔══════════════════════════════════════════════════════════════════╗
+║ ⚠️  AVISO LEGAL - USO INDEVIDO É CRIME                            ║
+╠══════════════════════════════════════════════════════════════════╣
+║ Este script é fornecido apenas para fins educacionais, testes    ║
+║ em redes autorizadas ou ambientes de laboratório.                ║
+║                                                                  ║
+║ ❌ Invadir redes sem permissão é crime no Brasil:                ║
+║    • Art. 154-A do Código Penal (Invasão de dispositivo)         ║
+║    • Pode resultar em multa e até prisão.                        ║
+║    • Não me responsabilizo, pelo mau uso deste script            ║
+║                                                                  ║
+║ ✅ Use este código apenas em redes que você tem autorização!     ║
+╚══════════════════════════════════════════════════════════════════╝
+"""
+    print(aviso)
+    time.sleep(2)
 
 def obter_ip_local():
     try:
@@ -47,10 +67,11 @@ def testar_porta(ip, port):
         s.close()
     except:
       
-        print(f"{ip}:{port} FECHADA")
+        #print(f"{ip}:{port} FECHADA")
         pass  
 
 if __name__ == "__main__":
+    exibir_aviso_legal()
     ip_local = obter_ip_local()
     if not ip_local:
         print("Não foi possível detectar o IP local.")
